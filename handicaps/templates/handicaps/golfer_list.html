@@ -1,23 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-    </body>
-</html>
+{% extends 'handicaps/base.html' %}
+{% block content %}
+<br>
+<br>
+<h3><a href="/">WPGL Active Golfer List</a></h3>
+    <table class="table table-sm table-striped">
+      <thead class="thead-dark">
+        <th scope="col">ID</th>
+        <th scope="col">Golfer Name</th>
+        <th scope="col">Tees</th>
+        <th scope="col">Status</th>
+        <th scope="col">Team Name</th>
+        <th scope="col">Team Role</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+      </thead>
+      <tbody>
+        {% for golfer in golfers %}
+          <tr>
+            <th scope="row">{{ golfer.id }}</th>
+            <td>{{ golfer }}</td>
+            <td>{{ golfer.tees }}</td>
+            <td>{{ golfer.status }}</td>
+            <td>{{ golfer.team }}</td>
+            <td>{{ golfer.role }}</td>
+            <td>{{ golfer.email }}</td>
+            <td>{{ golfer.phone }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
